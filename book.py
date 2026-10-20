@@ -7,9 +7,13 @@ class Book:
         self.borrowed = False
 
     def borrow(self):
-        if self.borrowed:
-            raise ValueError("The book is already borrowed")
-        self.borrowed = True
+        try:
+            if self.borrowed:
+                raise ValueError("The book is already borrowed")
+            self.borrowed = True
+        except ValueError:
+            print('Value Error Detected')
+
 
     def return_book(self):
         if not self.borrowed:
